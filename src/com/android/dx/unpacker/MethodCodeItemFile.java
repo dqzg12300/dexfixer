@@ -36,6 +36,9 @@ public class MethodCodeItemFile
                 //发现保存的json有点问题，应该给base64的值用双引号包起来，不然gson会出现解析失败的
                 codeJson=codeJson.replace("ins:","ins:\"");
                 codeJson=codeJson.replace("}","\"}");
+                codeJson=codeJson.replace("name:","name:\"");
+                codeJson=codeJson.replace(",method_idx","\",method_idx");
+
                 JsonCodeItem codedata= gson.fromJson(codeJson,JsonCodeItem.class);
                 MethodCodeItem codeItem = new MethodCodeItem();
                 codeItem.index = codedata.method_idx;
