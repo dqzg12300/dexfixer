@@ -30,6 +30,9 @@ public class MethodCodeItemFile
             this.map = new HashMap<>();
             Gson gson=new Gson();
             String[] items=this.jsondata.split(";");
+            if(items.length<=2){
+                items=this.jsondata.split("\n");
+            }
             for(int i=0;i<items.length;i++){
                 String codeJson=items[i];
 //                System.out.println("codeJson:"+codeJson);

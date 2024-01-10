@@ -889,7 +889,12 @@ public final class DexMerger {
                 } else {
                     codeOut.alignToFourBytesWithZeroFill();
                     classDataOut.writeUleb128(codeOut.getPosition());
-                    transformCode(in, in.readCode(method), indexMap);
+                    try{
+                        transformCode(in, in.readCode(method), indexMap);
+                    }catch (Exception ex){
+                        System.out.println("tracesformCode Exception "+ex.getMessage());
+                    }
+
                 }
             }
             else {
